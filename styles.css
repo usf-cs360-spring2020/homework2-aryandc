@@ -1,0 +1,39 @@
+@font-face {
+    font-family: 'Dank Mono Regular';
+    src: url('font/DankMono-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Dank Mono Italics';
+    src: url('font/DankMono-Italic.ttf');
+}
+
+@font-face {
+    font-family: 'Cascadia';
+    src: url('font/Cascadia.ttf')
+}
+
+@font-face {
+    font-family: 'Operator Mono Book';
+    src: url('font/OperatorMono-Book.otf') format("opentype");
+}
+
+@font-face {
+    font-family: 'Operator Mono Book Italics';
+    src: url('font/OperatorMono-BookItalic.otf') format("opentype");
+}
+
+div {
+    font-family: 'Operator Mono Book';
+    font-size: 14px;
+}
+
+em {
+    font-family: 'Operator Mono Book Italics';
+    font-size: 14px;
+}
+/* 
+pre {
+    font-family: 'Operator Mono Book';
+    font-size: 10em;   
+} */

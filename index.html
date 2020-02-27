@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
 
     <!-- TODO: Change title -->
     <title>Website Template</title>
@@ -23,9 +24,9 @@
     <div class="hero-body">
       <div class="container">
         <!-- TODO: Change title -->
-        <h1 class="title">Website Title</h1>
+        <h1 class="title">Homework 2</h1>
         <!-- TODO: Change subtitle -->
-        <h2 class="subtitle">Website Subtitle</h2>
+        <h2 class="subtitle">Baseline Cross-Sectional Estimates by College</h2>
       </div>
     </div>
   </section>
@@ -112,20 +113,20 @@
       <div class="content">
         <h1 class="title">
           <!-- TODO: Change page title -->
-          Page Title
+          Homepage
         </h1>
         <p class="subtitle">
           <!-- TODO: Change page subtitle -->
-          Page Subtitle
+          Introduction
         </p>
 
-        <p>This would be an excellent place to describe what this page is for, what to find in different sections, describe any motivation or theme behind your visualizations, and so on.</p>
-
-        <p>You should not use this template unless you intend to customize it. Make it your own. Keep in mind this simple template is over 300 lines! You can see other examples of websites using Bulma at their showcase: <a href="https://bulma.io/expo/">bulma.io/expo/</a>.</p>
+        <p>This is the first page for the homework 2 for the course CS:360 Data Visualization. This page contains information about site from where the data is collected for visualization, what type of visualizations are created from the data, my self-assessment for the grade I should earn for the homework, and my professional information.</p>
 
         <h2 id="data">Data</h2>
 
-        <p>Include some detailed information about the dataset here. You should <a href="#">add a link</a> to the original dataset. You might also want to quote the license:</p>
+        <p>The data is collected from the <a href="https://opportunityinsights.org/paper/mobilityreportcards/" target="_blank">"Mobility Report Cards: The Role of Colleges in Intergenerational Mobility"</a> project from <a href="https://opportunityinsights.org/" target="_blank">Opportunity Insights</a>.</p>
+        
+        <p>The exact dataset is the “Baseline Cross-Sectional Estimates of Child and Parent Income Distributions by College” dataset (also referred to as “Online Data Table 2”). The dataset can be found <a href="https://opportunityinsights.org/wp-content/uploads/2018/04/mrc_table2.csv" target="_blank">here</a>.</p>
 
         <blockquote>
           <p>
@@ -134,19 +135,124 @@
           <cite>Put a citation here, possibly link to the dataset license information directly.</cite>
         </blockquote>
 
-        <p>In addition to including a link to the source and license, you should describe the data. You might want a list of some sort to enumerate the different types of columns:</p>
+        <p>Information about the data elements are given below:</p>
 
         <ol>
-          <li><strong>Column Name:</strong> Give a description of the column, including its type and possible range of values.</li>
+          <li><strong>super_opeid:</strong> Institution OPEID / Cluster ID when combining multiple OPEIDs:
+          <ul>
+            <li>-99 = late goers (attended college between 23-28)</li>
+            <li>-9 = Never attended college (up to and including year 2013)</li>
+            <li>-1 = attending a college with insufficient data (less than 100 students on average or incomplete data)</li>
+            <li>>0 = specific colleges</li>
+          </ul>
+        </li>
 
-          <li><strong>Column Name:</strong> Give a description of the column, including its type and possible range of values.</li>
+          <li><strong>name:</strong> Name of college (or college group)</li>
 
-          <li><strong>Column Name:</strong> Give a description of the column, including its type and possible range of values.</li>
+          <li><strong>type:</strong> Type:
+            <ul>
+              <li>1 = public</li>
+              <li>2 = private non-profit</li>
+              <li>3 = for-profit</li>
+            </ul>
+          </li>
 
-          <li><strong>Column Name:</strong> Give a description of the column, including its type and possible range of values.</li>
+          <li><strong>tier:</strong> Selectivity and type combination:
+            <ul>
+              <li>1 = Ivy Plus</li>
+              <li>2 = Other elite schools (public and private)</li>
+              <li>3 = Highly selective public</li>
+              <li>4 = Highly selective private</li>
+              <li>5 = Selective public</li>
+              <li>6 = Selective private</li>
+              <li>7 = Nonselective 4-year public</li>
+              <li>8 = Nonselective 4-year private not-for-profit</li>
+              <li>9 = Two-year (public and private not-for-profit)</li>
+              <li>10 = Four-year for-profit</li>
+              <li>11 = Two-year for-profit</li>
+              <li>12 = Less than two year schools of any type</li>
+              <li>13 = Attending college with insufficient data</li>
+              <li>14 = Not in college between the ages of 19-22</li>
+            </ul>
+          </li>
+
+          <li><strong>tier_name:</strong> Name of college tier</li>
+
+          <li><strong>iclevel:</strong> Four-year ot two-year college:
+            <ul>
+              <li>1 = Four-year</li>
+              <li>2 = Two-year</li>
+              <li>3 = Less than Two-year</li>
+            </ul>
+          </li>
+
+          <li><strong>region:</strong> Census region:
+            <ul>
+              <li>1 = Northeast</li>
+              <li>2 = Midwest</li>
+              <li>3 = South</li>
+              <li>4 = West</li>
+            </ul>
+          </li>
+
+          <li><strong>state:</strong> State</li>
+
+          <li><strong>cz:</strong> Community zone ID</li>
+
+          <li><strong>czname:</strong> Community zone name</li>
+
+          <li><strong>cfips:</strong> Combined state and county fips code</li>
+
+          <li><strong>county:</strong> County</li>
+
+          <li><strong>multi:</strong> Indicator that equals 1 if multiple colleges (IPEDS Unit IDs) are grouped in this Super OPEID</li>
+
+          <li><strong>count:</strong> Average number of kids per cohort</li>
+
+          <li><strong>female:</strong> Fraction female among kids</li>
+
+          <li><strong>k_married:</strong> Fraction of kids married in 2014</li>
+
+          <li><strong>mr_kq5_pq1:</strong> Mobility rate (joint probability of parents in bottom quintile and child in top quintile of the income distribution)</li>
+
+          <li><strong>mr_ktop1_pq1:</strong> Upper-tail mobility rate (joint probability of parents in bottom quintile and chile in toop 1% of the income distribution)</li>
+
+          <li><strong>par_mean:</strong> Mean parental income</li>
+
+          <li><strong>par_median:</strong> Median parent household income (rounded to nearest $100)</li>
+
+          <li><strong>par_rank:</strong> Mean parental income rank</li>
+
+          <li><strong>par_q[PARQUINT]:</strong> Fraction of parent in an income quintile [PARQUINT]. 1 is the bottom quntile and 5 is the top</li>
+
+          <li><strong>par_top[PCTILE]pc:</strong> Fraction of parents in the top percentile [PCTILE]. For instance, par_toppt1pc refers to parents in the top 0.1% of the income distribution</li>
+
+          <li><strong>k_rank:</strong> Mean kid earnings rank</li>
+
+          <li><strong>k_mean:</strong> Mean kid earnings</li>
+
+          <li><strong>k_median:</strong> Median child individual earnings in 2014 (rounded to the nearest $100)</li>
+
+          <li><strong>k_median_nonzero:</strong> Median child individual earnings among positive earners in 2014 (rounded to the nearest $100)</li>
+
+          <li><strong>k_0inc:</strong> Fraction of kids with zero labor earnings</li>
+
+          <li><strong>k_q[KIDQUINT]:</strong> FFraction of kids in an income quintile [KIDQUINT]. 1 is the bottom quintile and 5 is the top</li>
+
+          <li><strong>k_top[PCTILE]pc:</strong> Fraction of kids in the top percentile [PCTILE]. For instance, top1pc refers to childern in the top 1% of the income distribution.</li>
+
+          <li><strong>k_rank_cond_parq[PARQUINT]:</strong> Mean kid earnings rank conditional on parent in quintile [PARQUINT]</li>
+
+          <li><strong>kq[KIDQUINT]_cond_parq[PARQUINT]:</strong> Probability of kid in quintile [KIDQUINT] conditional on parent in quintile [PARQUINT]</li>
+
+          <li><strong>ktop1pc_cond_parq[PARQUINT]:</strong> ] Probability of kid in top 1% conditional on parent in quintile [PARQUINT]</li>
+
+          <li><strong>k_married_cond_parq[PARQUINT]:</strong> Fraction of kids married conditional on parent in quintile [PARQUINT]</li>
+
+          <li><strong>shareimputed:</strong> Share of count-weighted data that was imputed using information from the 1983-84 cohorts</li>
+
+          <li><strong>imputed:</strong> Indicator if any data for that super_opeid was imputed</li>
         </ol>
-
-        <p>This will of course differ depending on the assignment and data.</p>
 
         <h3 id="wrangling">Wrangling</h3>
 
@@ -166,53 +272,33 @@ You can even put code into these pre blocks.
 
         <p>Ideally not everything would be on a single page like this example. Instead, you might want to put each section in its own webpage. You would need to carefully replicate the page template (with the header, navbar, and footer) and make the necessary updates. For example, you want the "About" navbar item to be considered active on an "About" web page.</p>
 
-        <p>For now this is just a demo. The buttons below do not go anywhere, but can be easily changed to link to different visualization pages.</p>
+        <div id="vis">
+          <img src="ScatterPlotMatrix.png" alt="scatter plot matrix" width="960" height="500">
+        </div>
 
-        <p class="buttons">
-          <a class="button is-large is-success" href="#">
-            <span class="icon is-medium">
-              <i class="fas fa-chart-line"></i>
-            </span>
-            <span>Line Chart</span>
-          </a>
-
-          <a class="button is-large is-primary" href="#">
-            <span class="icon is-medium">
-              <i class="fas fa-chart-area"></i>
-            </span>
-            <span>Area Chart</span>
-          </a>
-
-          <a class="button is-large is-info" href="#">
-            <span class="icon is-medium">
-              <i class="fas fa-chart-bar"></i>
-            </span>
-            <span>Bar Chart</span>
-          </a>
-
-          <a class="button is-large is-link" href="#">
-            <span class="icon is-medium">
-              <i class="fas fa-chart-pie"></i>
-            </span>
-            <span>Pie Chart</span>
-          </a>
-        </p>
 
         <!-- https://github.com/vega/vega-embed#basic-example -->
-        <p>It is possible to embed some visualizations directly here too. Here is <a href="https://github.com/vega/vega-embed#basic-example">an example</a> using Vega-Lite:</p>
+        <p>The D3 v5 version of the above prototype is given below:</p>
 
-        <script src="https://cdn.jsdelivr.net/npm/vega@5.9.0"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.0.2"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.2.1"></script>
+        <section class="section">
+          <div class="container content">
+            <h1>Mobility Rate of Universities in California</h1>
+      
+            <svg id="bubble"></svg>
+      
+            <p class="is-size-7 has-text-grey">
+              Shows the median parent household income (adjusted for inflation) versus mobility rate, calculated as the percent of students with parents in the bottom 20% of income distribution that reach the top 20% in income distribution. Circles are sized by average number of students per cohort, and colored by the change in the percent of parents from the bottom 40% of income distribution from 1980 to 1991. Source: <a href="https://opportunityinsights.org/data/">https://opportunityinsights.org/data/</a>
+            </p>
+          </div>
+        </section>
 
-        <div id="vis"></div>
+        <script src="https://d3js.org/d3.v5.min.js"></script>
 
-        <script type="text/javascript">
-        var spec = "https://raw.githubusercontent.com/vega/vega/master/docs/examples/bar-chart.vg.json";
-        vegaEmbed('#vis', spec).then(function(result) {
-          // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-        }).catch(console.error);
-        </script>
+       <!-- include d3-legend: https://d3-legend.susielu.com/ -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js" integrity="sha256-qo76Vs9B6JAALbrTn+PcN1r09hbNLd2M78V19glOMeU=" crossorigin="anonymous"></script>
+
+      <!-- craft visualization -->
+      <script src="scatterplotmatrix.js"></script>
 
         <h4>Instructions</h4>
 
@@ -296,29 +382,33 @@ You can even put code into these pre blocks.
             <div class="content">
               <!-- TODO: Replace with contact information -->
               <p>
-                <strong>Full Name</strong><br/>
-                CS Major, <a href="https://www.usfca.edu/">University of San Francisco</a><br/>
-                <em>Expected Graduation: 20??</em><br/>
-                <i class="fas fa-envelope"></i> <a href="mailto:username@dons.usfca.edu">username@dons.usfca.edu</a>
+                <strong>Aryan Dilip Choudhary</strong><br/>
+                MS in Computer science, <a href="https://www.usfca.edu/" target="_blank">University of San Francisco</a><br/>
+                <em>Expected Graduation: 2022</em><br/>
+                <i class="fas fa-envelope"></i> <a href="mailto:adchoudhary@dons.usfca.edu">adchoudhary@dons.usfca.edu</a>
               </p>
 
               <!-- TODO: Replace with brief biography -->
               <p>
-                Here is a brief bio about yourself. A good rule of thumb is to include at least one technical tidbit (favorite area or course within computer science), and one fun tidbit (such as loving dogs).
+                First year Ms CS student at University of San Francisco. Former Research scholar at <a href="https://www.upc.edu/en" target="_blank">Universidad Polytecnia de Catalunya, Barcelona</a>.
               </p>
+              <p>I completed my Bachelors in "Mechanical Engineering" with specialization in "Industrial Management" from <a href="https://www.iitbhu.ac.in/" target="_blank">Indian Institute of Technology (BHU), Varanasi</a>.</p>
+
 
               <!-- TODO: Replace or remove tags -->
               <!-- https://bulma.io/documentation/elements/tag/ -->
               <div class="heading">Skills</div>
 
               <div class="tags">
-                <span class="tag">Python</span>
                 <span class="tag">C</span>
+                <span class="tag">C++</span>
                 <span class="tag">Java</span>
                 <span class="tag">JavaScript</span>
                 <span class="tag">HTML</span>
                 <span class="tag">CSS</span>
                 <span class="tag">SVG</span>
+                <span class="tag">R</span>
+                <span class="tag">MATLAB Programming</span>
               </div>
             </div>
           </div>
