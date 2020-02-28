@@ -1,6 +1,6 @@
 # README
 
-<https://usf-cs360-spring2020.github.io/template-bulma/>
+Webpage: <https://usf-cs360-spring2020.github.io/homework2-aryandc/>
 
 ![Profile Image](profile.png)
 
