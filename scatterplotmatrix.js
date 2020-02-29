@@ -39,13 +39,13 @@
     var xAxis = d3.axisBottom()
         .scale(x)
         .tickPadding(0)
-        .ticks(6)
+        .ticks(4)
         .tickFormat(formatter);
 
     var yAxis = d3.axisLeft()
         .scale(y)
         .tickPadding(0)
-        .ticks(6)
+        .ticks(4)
         .tickFormat(formatter);
 
     var color = d3.scaleOrdinal(d3.schemeTableau10);
@@ -152,7 +152,7 @@
           .style("font-size", "11px")
           .attr("x", padding)
           .attr("y", padding)
-          .attr("dx", -63)
+          .attr("dx", -57)
           .attr("dy", -45)
           .attr('dominant-baseline', 'middle')
           .attr('text-anchor', 'middle')
@@ -163,16 +163,16 @@
                 return "Mean parent Income";
 
               case "mobility":
-                return "Mobility";
+                return "Mobility rate";
 
-              case "income":
-                return "Income";
+              case "kMean":
+                return "Mean Kid Income";
 
               case "count":
-                return "Count";
+                return "Avg. no. of kids";
 
               default:
-                return d.x;
+                return d.y;
             }
           });
 
@@ -191,13 +191,13 @@
                 return "Mean parent Income";
 
               case "mobility":
-                return "Mobility";
+                return "Mobility rate";
 
-              case "income":
-                return "Income";
+              case "kMean":
+                return "Mean Kid Income";
 
               case "count":
-                return "Count";
+                return "Avg. no. of kid per cohort";
 
               default:
                 return d.x;
@@ -450,10 +450,11 @@
   keep.name = row.name;
   keep.state = row.state;
 
-  keep.parMean = parseInt(row.par_mean);
-  keep.mobility = parseFloat(row.k_top1pc);
-  keep.income = parseFloat(row.k_q1);
   keep.count = parseFloat(row.count);
+  keep.parMean = parseInt(row.par_mean);
+  keep.kMean = parseFloat(row.k_mean);
+  keep.mobility = parseFloat(row.mr_kq5_pq1);
+
   keep.type = parseFloat(row.type);
 
   // keep.parMean = parseInt(row.par_median);

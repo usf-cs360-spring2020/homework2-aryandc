@@ -24,13 +24,14 @@
 }
 
 div {
-    font-family: 'Operator Mono Book';
-    font-size: 14px;
+    font-family: 'Cascadia';
+    font-weight: 400;
+    font-size: 13px;
 }
 
 em {
-    font-family: 'Operator Mono Book Italics';
-    font-size: 14px;
+    font-family: 'Cascadia';
+    font-size: 13px;
 }
 /* 
 svg {

@@ -26,7 +26,7 @@
         <!-- TODO: Change title -->
         <h1 class="title">Homework 2</h1>
         <!-- TODO: Change subtitle -->
-        <h2 class="subtitle">Baseline Cross-Sectional Estimates by College</h2>
+        <h2 class="subtitle">Mobility Report Cards: The Role of Colleges in Intergenerational Mobility</h2>
       </div>
     </div>
   </section>
@@ -59,34 +59,11 @@
             <span>Data</span>
           </a>
 
-          <!-- TODO: Modify or remove dropdown -->
-          <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link">
-              Visualizations
-            </a>
+          <a class="navbar-item" href="#visualizations" title="Visualization">
+            <span class="icon"><img src="https://img.icons8.com/android/24/000000/scatter-plot.png" style="width: 15px;"></span>
+            <span>Visualization</span>
+          </a>
 
-            <div class="navbar-dropdown">
-              <a class="navbar-item">
-                <span class="icon"><i class="fas fa-chart-line"></i></span>
-                <span>Line Chart</span>
-              </a>
-              <a class="navbar-item">
-                <span class="icon"><i class="fas fa-chart-area"></i></span>
-                <span>Area Chart</span>
-              </a>
-
-              <hr class="navbar-divider">
-
-              <a class="navbar-item">
-                <span class="icon"><i class="fas fa-chart-bar"></i></span>
-                <span>Bar Chart</span>
-              </a>
-              <a class="navbar-item">
-                <span class="icon"><i class="fas fa-chart-pie"></i></span>
-                <span>Pie Chart</span>
-              </a>
-            </div>
-          </div>
         </div>
 
         <!-- Right navbar items -->
@@ -113,26 +90,33 @@
       <div class="content">
         <h1 class="title">
           <!-- TODO: Change page title -->
-          Homepage
+          Baseline Cross-Sectional Estimates of Child and Parent Income Distributions by College
         </h1>
         <p class="subtitle">
           <!-- TODO: Change page subtitle -->
           Introduction
         </p>
 
-        <p>This is the first page for the homework 2 for the course CS:360 Data Visualization. This page contains information about site from where the data is collected for visualization, what type of visualizations are created from the data, my self-assessment for the grade I should earn for the homework, and my professional information.</p>
+        <p>This assignment visualizes the intergenerational income mobility at each college in the United States using data for over 30 million college students from 1999-2013. This visualization uses publicly available dataset available in <a href="https://opportunityinsights.org/data/" target="_blank">Opportunity insights</a>.</p>
 
         <h2 id="data">Data</h2>
 
-        <p>The data is collected from the <a href="https://opportunityinsights.org/paper/mobilityreportcards/" target="_blank">"Mobility Report Cards: The Role of Colleges in Intergenerational Mobility"</a> project from <a href="https://opportunityinsights.org/" target="_blank">Opportunity Insights</a>.</p>
+        <p> The dataset reports baseline estimates of parent's and childern's income distribution based on college. The college values are calculated as means over students in 1980, 1981, and 1982 birth cohorts. If data for a college from any of these cohorts is incomplete, we use data from 1983, and 1984 cohorts to get an estimate.</p>
+
+        <p>Some cases have multiple colleges share a single identifier in the tax records (e.g. the campuses of University of Massachusetts or University of Illinois systems). In these cases, we report average of all students attending the relevant group of colleges. For, these groups, we assign location based on the location of the largest school/campus within the group of colleges. </p>
+       
+        <p class="is-size-7 has-text-grey">-(Source: <a href="https://opportunityinsights.org/paper/mobilityreportcards/" target="_blank">https://opportunityinsights.org/paper/mobilityreportcards/</a>)</p>
+
+        <p>
+          The data is collected from the <a href="https://opportunityinsights.org/paper/mobilityreportcards/" target="_blank">"Mobility Report Cards: The Role of Colleges in Intergenerational Mobility"</a> project from <a href="https://opportunityinsights.org/" target="_blank">Opportunity Insights</a>.</p>
         
         <p>The exact dataset is the “Baseline Cross-Sectional Estimates of Child and Parent Income Distributions by College” dataset (also referred to as “Online Data Table 2”). The dataset can be found <a href="https://opportunityinsights.org/wp-content/uploads/2018/04/mrc_table2.csv" target="_blank">here</a>.</p>
 
         <blockquote>
           <p>
-            "This data is made available under the Public Domain Dedication and License v1.0 whose full text can be found at: <a href="http://www.opendatacommons.org/licenses/pddl/1.0/">www.opendatacommons.org/licenses/pddl/1.0/</a>"
+            "This data is made publicly available under the Opportunity Insights whose full text can be found at: <a href="https://opportunityinsights.org/data">https://opportunityinsights.org/data</a>"
           </p>
-          <cite>Put a citation here, possibly link to the dataset license information directly.</cite>
+          <cite>Data acquired from <a href="https://opportunityinsights.org/data" target="_blank">https://opportunityinsights.org/data</a> on February 21 2020. Aggregated data on this page is made publicly available under <a href="https://opportunityinsights.org/data/" target="_blank">Opportunity insights</a>.</cite>
         </blockquote>
 
         <p>Information about the data elements are given below:</p>
@@ -256,38 +240,36 @@
 
         <h3 id="wrangling">Wrangling</h3>
 
-        <p>Perhaps you had to do some data wrangling to the original dataset to prepare it for visualization. This would be a great place to discuss some of that wrangling.
+        <p>The data is filtered based on "state" as "CA".  Grouping is done on the data by name (university name) and aggregated by count (average number of students per cohort), mr_kq5_pq1 (mobility rate), par_mean (Mean parental Income), and k_mean (Mean kid Income). 
 
-        <pre>
-You can even put code into these pre blocks.
-  It will preserve whitespace.
-    That is helpful for formatted code.
+        <pre style="font-size: 14px; font-family: Dank Mono Regular;">
+Filtered By: state = "CA"
+Grouping By: name
+Aggregated By: count (Average no. of kids per cohort) as average
+               par_mean (Mean parental Income) as average
+               k_mean (Mean kid Income) as average
+               mr_kq5_pq1 (Mobility rate) as average
         </pre>
 
-        <p>You can alternatively embed a Gist if you want. There is an "embed" button on <a href="https://gist.github.com/octocat/6cad326836d38bd3a7ae">the Gist page</a> and results in something like this:</p>
-
-        <script src="https://gist.github.com/octocat/6cad326836d38bd3a7ae.js"></script>
-
-        <h2 id="visualizations">Visualizations</h2>
-
-        <p>Ideally not everything would be on a single page like this example. Instead, you might want to put each section in its own webpage. You would need to carefully replicate the page template (with the header, navbar, and footer) and make the necessary updates. For example, you want the "About" navbar item to be considered active on an "About" web page.</p>
+        <h2 id="visualizations">Visualization</h2>
 
         <div id="vis">
           <img src="ScatterPlotMatrix.png" alt="scatter plot matrix" width="960" height="500">
         </div>
-
-
-        <!-- https://github.com/vega/vega-embed#basic-example -->
+    
+        <br/>
         <p>The D3 v5 version of the above prototype is given below:</p>
 
         <section class="section">
           <div class="container content">
-            <h1>Mobility Rate of Universities in California</h1>
+            <h5>Comparison of Parent and Child's Income across Universities in California</h5>
       
             <svg id="bubble"></svg>
       
-            <p class="is-size-7 has-text-grey">
-              Shows the median parent household income (adjusted for inflation) versus mobility rate, calculated as the percent of students with parents in the bottom 20% of income distribution that reach the top 20% in income distribution. Circles are sized by average number of students per cohort, and colored by the change in the percent of parents from the bottom 40% of income distribution from 1980 to 1991. Source: <a href="https://opportunityinsights.org/data/">https://opportunityinsights.org/data/</a>
+              <p class="is-size-7 has-text-grey">
+                  Source:  <a href="https://opportunityinsights.org/paper/mobilityreportcards/" target="_blank">https://opportunityinsights.org/paper/mobilityreportcards</a>
+                  <br>
+                  Created by - Aryan Dilip Choudhary  
             </p>
           </div>
         </section>
@@ -300,23 +282,33 @@ You can even put code into these pre blocks.
       <!-- craft visualization -->
       <script src="scatterplotmatrix.js"></script>
 
-        <h4>Instructions</h4>
+        <h4>Instruction</h4>
 
-        <p>You will likely need to include instructions on how to interpet and use the visualization. In the case above, if you click the three dots <i class="fas fa-ellipsis-h has-text-grey-light	"></i> above it will open a menu where you can either save the visualization to a SVG or PNG, or alternatively open it up in the online Vega Editor.</p>
+        <p>A scatter plot matrix is a grid/matrix of scatter plots used to visualize relationships between combinations of variables. Each scatter plot in the matrix visualizes the relationship between a pair of variables.</p>
 
-        <h4>Discussion</h4>
+        <p>
+          A scatter plot matrix is interpreted by looking for trends in the data as you go from left to right. If the data shows an uphill trend, it indicates a positive relationship between variables. As the value of one variable increases, the value of other variable tend to increase.
+        </p>
 
-        <p>You may also need other sections, like a discussion section, per-visualization section on data wrangling, and others. Because of the extra content and code visualizations take, it might be worthwhile to break up your pages into one home page and then one page per visualization.</p>
+        <h4>Conclusion</h4>
+
+        <p>From the visualizations, it can be determined that:
+
+            <ul>
+              <li></li>
+            </ul>
+
+        </p>
 
         <span class="heading">Acknowledgements</span>
 
-        <p>
-          <a href="#">Link to insiration</a><br/>
-          <a href="#">Link to StackOverflow snippet</a>
+        <p style="font-family: 'Dank Mono Regular'; font-size: 14px; color: cornflowerblue;">
+          <a href="https://bl.ocks.org/vdng/63af6a25994a52ad6635c66ef66e3931" target="_blank">Scatter Plot Matrix for the Iris Dataset</a><br/>
+          <a href="https://bl.ocks.org/Fil/6d9de24b31cb870fed2e6178a120b17d" target="_blank">Scatter Plot Matrix Brushing</a>
         </p>
 
         <p class="is-6">
-          <em>Thanks to Person Name for their suggestion to do something with the visualization.</em>
+          <em>Thanks to Sophie Engle for their suggestion to do something with the visualization.</em>
         </p>
 
         <h2 id="grade">Grade</h2>
@@ -342,27 +334,15 @@ You can even put code into these pre blocks.
 
           <tbody>
             <tr>
-              <td>D</td>
-              <td><i class="has-text-success fas fa-check-circle"></i></td>
-              <td>Discussion of how this grade level was satisfied. Exactly how this section should look will depend on the assignment in question. There is no requirement for formatting in this way. This is just an example of what a table element might look like for this informaiton.</td>
-            </tr>
-
-            <tr>
-              <td>C</td>
-              <td><i class="has-text-success fas fa-check-circle"></i></td>
-              <td>Discussion of how this grade level was satisfied.</td>
-            </tr>
-
-            <tr>
-              <td>B</td>
-              <td><i class="has-text-warning far fa-check-circle"></i></td>
-              <td>Discussion of how this grade level was satisfied.</td>
-            </tr>
-
-            <tr>
               <td>A</td>
-              <td><i class="has-text-danger fas fa-times-circle"></i></td>
-              <td>Discussion of how this grade level was not satisfied.</td>
+              <td><i class="has-text-success fas fa-check-circle"></i></td>
+              <td>I have satisfied this grade requirement by successfully completing below requirements:
+
+                <ul>
+                  <li>Implemented the scatter plot matrix in Tableau and D3 version 5.</li>
+                  <li>Matched as much of the design as possible from my Tableau prototype along with caption and titles.</li>
+                </ul>
+              </td>
             </tr>
           </tbody>
 
